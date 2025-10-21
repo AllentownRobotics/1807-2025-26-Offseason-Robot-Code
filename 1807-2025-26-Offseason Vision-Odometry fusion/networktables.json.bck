@@ -1,0 +1,18 @@
+[
+  {
+    "name": "/Pose/robotPose",
+    "type": "double[]",
+    "value": [16.67906191796498, 6.828224782743258, -127.27935791015628],
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/Pose/.type",
+    "type": "string",
+    "value": "Field2d",
+    "properties": {
+      "persistent": true
+    }
+  }
+]
