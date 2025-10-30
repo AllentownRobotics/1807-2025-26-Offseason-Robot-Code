@@ -28,10 +28,13 @@ public class RobotPositioningSystem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
     currentPose = drivetrain.getState().Pose;
+    SmartDashboard.putString("Odometry Pose", currentPose.toString());
     if(vision.hasValidTarget()){
       currentPose = vision.getRobotPose().get().toPose2d();
       drivetrain.addVisionMeasurement(currentPose, Utils.getCurrentTimeSeconds());
+      SmartDashboard.putString("Vision Pose", currentPose.toString());
   }
   SmartDashboard.putString("Robot Pose", currentPose.toString());
+
 }
 }

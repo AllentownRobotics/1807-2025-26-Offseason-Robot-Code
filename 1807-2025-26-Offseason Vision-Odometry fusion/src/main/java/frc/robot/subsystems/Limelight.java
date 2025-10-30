@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.utils.LimelightHelpers;
 
 public class Limelight extends SubsystemBase implements Camera {
   /** Creates a new Limelight. */
@@ -20,26 +21,23 @@ public class Limelight extends SubsystemBase implements Camera {
   
   @Override
   public Pose3d getTargetPose() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getTargetPose'");
+    return LimelightHelpers.getTargetPose3d_RobotSpace("limelight");
   }
 
   @Override
   public void setCameraPose(Pose3d cameraPose) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'setCameraPose'");
+    LimelightHelpers.setCameraPose_RobotSpace("limelight", cameraPose.getZ(), cameraPose.getX(), cameraPose.getY(),
+        cameraPose.getRotation().getZ(), cameraPose.getRotation().getX(), cameraPose.getRotation().getY());
   }
 
   @Override
   public int getTargetID() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getTargetID'");
+    return LimelightHelpers.getLimelightNTTable("limelight").getEntry("tid").getNumber(-1).intValue();
   }
 
   @Override
   public boolean hasTarget() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'hasTarget'");
+    return LimelightHelpers.getLimelightNTTable("limelight").getEntry("tid").getNumber(-1).intValue() >= 0;
   }
 
   
